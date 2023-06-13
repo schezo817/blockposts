@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import '../scenes/home_view.dart';
+import '../scenes/login_view.dart';
+import '../scenes/signup_view.dart';
 
 final router = Provider((ref) => GoRouter(
   routes: [
@@ -10,8 +12,16 @@ final router = Provider((ref) => GoRouter(
       builder: (context, state) => const HomeView(),
     ),
     GoRoute(
-      path: '/top',
+      path: '/home',
       builder: (context, state) => const HomeView(),
+    ),
+    GoRoute(
+      path: '/login',
+      builder: (context, state) => const LoginView(),
+    ),
+    GoRoute(
+      path: '/signup',
+      builder: (context, state) => const SignupView(),
     ),
   ],
 
