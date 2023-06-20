@@ -16,6 +16,7 @@ class _SignupViewState extends ConsumerState<SignupView> {
       onWillPop: () async {
         return true;
       },
+      // metamaskの接続だけならこの画面いらない
       child: Scaffold(
         body: Center(
           child: Text(

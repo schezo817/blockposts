@@ -38,6 +38,8 @@ dependencies:
   go_router: ^8.0.1
   riverpod: ^2.3.6
   flutter_riverpod: ^2.3.6
+  web3dart: ^2.6.1
+  flutter_web3: ^2.1.9
 
 dev_dependencies:
   flutter_test:

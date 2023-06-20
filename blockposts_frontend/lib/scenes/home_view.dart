@@ -24,6 +24,7 @@ class _HomeViewState extends ConsumerState<HomeView> {
             itemBuilder: (context, index) {
               // EtherScanから投稿を取得して表示する
               // ここに投稿をクリックしたら詳細に遷移するボタンを書く
+
               return ListTile(
                 leading: Icon(Icons.message),
                 title: Text('User $index'),
@@ -34,7 +35,9 @@ class _HomeViewState extends ConsumerState<HomeView> {
         ),
         floatingActionButton: FloatingActionButton(
           onPressed: () {
-            // 押したらポップアップで投稿メッセージを入力する欄を表示する
+            // if(非ログイン状態)ならログイン画面に遷移する
+            // elseならポップアップで投稿メッセージを入力する欄を表示する
+            GoRouter.of(context).go('/login');
           },
           child: const Icon(Icons.add),
           backgroundColor: Colors.blue,
