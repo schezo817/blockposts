@@ -39,6 +39,7 @@ class _LoginViewState extends ConsumerState<LoginView> {
               ),
               onPressed: () async {
                 final accounts = await ethereum!.requestAccount();
+                GoRouter.of(context).go('/message');
               },
             ),
           ]),

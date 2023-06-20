@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import '../scenes/home_view.dart';
 import '../scenes/login_view.dart';
+import '../scenes/message_view.dart';
 import '../scenes/signup_view.dart';
 
 final router = Provider((ref) => GoRouter(
@@ -22,6 +23,10 @@ final router = Provider((ref) => GoRouter(
     GoRoute(
       path: '/signup',
       builder: (context, state) => const SignupView(),
+    ),
+    GoRoute(
+      path: '/message',
+      builder: (context, state) => const MessageView(),
     ),
   ],
 
