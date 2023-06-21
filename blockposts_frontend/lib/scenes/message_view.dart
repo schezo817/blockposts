@@ -13,7 +13,7 @@ class MessageView extends ConsumerStatefulWidget {
   ConsumerState<MessageView> createState() => _MessageViewState();
 }
 
-//Metamask連携を行うボタンを配置する
+//ブロックチェーン上にメッセージを投稿する
 class _MessageViewState extends ConsumerState<MessageView> {
   var sendMessage = "";
 
@@ -29,6 +29,45 @@ class _MessageViewState extends ConsumerState<MessageView> {
           child: Container(
             padding: Design.padding(),
             child: Column(children: <Widget>[
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: <Widget>[
+                  ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Colors.blue,
+                      shape: const StadiumBorder(),
+                    ),
+                    child: const Text(
+                      "キャンセル",
+                      style: TextStyle(
+                        fontSize: 24,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.white,
+                      ),
+                    ),
+                    onPressed: () {
+                      GoRouter.of(context).go('/home');
+                    },
+                  ),
+                  ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Colors.blue,
+                      shape: const StadiumBorder(),
+                    ),
+                    child: const Text(
+                      "投稿する",
+                      style: TextStyle(
+                        fontSize: 24,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.white,
+                      ),
+                    ),
+                    onPressed: () {
+                      // 投稿するボタンが押されたときの動作
+                    },
+                  ),
+                ],
+              ),
               TextFormField(
                 controller: TextEditingController(text: sendMessage),
                 maxLines: 99,
@@ -39,21 +78,6 @@ class _MessageViewState extends ConsumerState<MessageView> {
                 onChanged: (text) {
                   sendMessage = text;
                 },
-              ),
-              ElevatedButton(
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.blue,
-                  shape: const StadiumBorder(),
-                ),
-                child: const Text(
-                  "送信",
-                  style: TextStyle(
-                    fontSize: 24,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.white,
-                  ),
-                ),
-                onPressed: () async {},
               ),
             ]),
           ),
