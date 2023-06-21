@@ -22,30 +22,25 @@ class _LoginViewState extends ConsumerState<LoginView> {
       },
       child: Scaffold(
         body: Center(
-          child: Column(children: <Widget>[
-            Text(
-              "ここはログインをする画面です",
+          child: ElevatedButton(
+            style: ElevatedButton.styleFrom(
+              backgroundColor: Colors.blue,
+              shape: const StadiumBorder(),
             ),
-            ElevatedButton(
-              style: ElevatedButton.styleFrom(
-                backgroundColor: Colors.blue,
-                shape: const StadiumBorder(),
+            child: const Text(
+              "MetaMaskに連携",
+              style: TextStyle(
+                fontSize: 24,
+                fontWeight: FontWeight.bold,
+                color: Colors.white,
               ),
-              child: const Text(
-                "MetaMaskに連携",
-                style: TextStyle(
-                  fontSize: 24,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.white,
-                ),
-              ),
-              onPressed: () async {
-                await ethereum!.requestAccount();
-                ref.read(authControllerProvider.notifier).login();
-                GoRouter.of(context).go('/message');
-              },
             ),
-          ]),
+            onPressed: () async {
+              await ethereum!.requestAccount();
+              ref.read(authControllerProvider.notifier).login();
+              GoRouter.of(context).go('/message');
+            },
+          ),
         ),
       ),
     );

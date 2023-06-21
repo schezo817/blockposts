@@ -12,6 +12,7 @@ class MessageView extends ConsumerStatefulWidget {
 
 //Metamask連携を行うボタンを配置する
 class _MessageViewState extends ConsumerState<MessageView> {
+  var sendMessage = "";
   @override
   Widget build(BuildContext context) {
     return WillPopScope(
@@ -21,8 +22,33 @@ class _MessageViewState extends ConsumerState<MessageView> {
       child: Scaffold(
         body: Center(
           child: Column(children: <Widget>[
-            Text(
-              "ここはメッセージを送信する画面です",
+            TextFormField(
+              controller: TextEditingController(text: sendMessage),
+              maxLines: 1,
+              style: const TextStyle(
+                color: Colors.black,
+                overflow: TextOverflow.ellipsis,
+              ),
+              onChanged: (text) {
+                sendMessage = text;
+              },
+            ),
+            ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Colors.blue,
+                shape: const StadiumBorder(),
+              ),
+              child: const Text(
+                "送信",
+                style: TextStyle(
+                  fontSize: 24,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.white,
+                ),
+              ),
+              onPressed: () async {
+
+              },
             ),
           ]),
         ),
