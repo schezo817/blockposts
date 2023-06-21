@@ -1,7 +1,9 @@
+import 'package:blockposts/util/auth_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:flutter_web3/flutter_web3.dart';
+import '../util/auth_controller.dart';
 
 class LoginView extends ConsumerStatefulWidget {
   const LoginView({Key? key}) : super(key: key);
@@ -38,7 +40,8 @@ class _LoginViewState extends ConsumerState<LoginView> {
                 ),
               ),
               onPressed: () async {
-                final accounts = await ethereum!.requestAccount();
+                await ethereum!.requestAccount();
+                ref.read(authControllerProvider.notifier).login();
                 GoRouter.of(context).go('/message');
               },
             ),
