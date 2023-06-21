@@ -15,8 +15,7 @@ class MyApp extends ConsumerWidget {
     return MaterialApp.router(
       routerDelegate: ref.watch(router).routerDelegate,
       routeInformationParser: ref.watch(router).routeInformationParser,
-      routeInformationProvider:
-      ref.watch(router).routeInformationProvider,
+      routeInformationProvider: ref.watch(router).routeInformationProvider,
       title: "BlockPosts",
       debugShowCheckedModeBanner: false,
     );

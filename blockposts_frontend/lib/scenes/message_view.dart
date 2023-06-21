@@ -1,3 +1,4 @@
+import 'package:blockposts/component/logo_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
@@ -23,36 +24,39 @@ class _MessageViewState extends ConsumerState<MessageView> {
         return true;
       },
       child: Scaffold(
-        body: Container(
-          padding: Design.padding(),
-          child: Column(children: <Widget>[
-            TextFormField(
-              controller: TextEditingController(text: sendMessage),
-              maxLines: 1,
-              style: const TextStyle(
-                color: Colors.black,
-                overflow: TextOverflow.ellipsis,
-              ),
-              onChanged: (text) {
-                sendMessage = text;
-              },
-            ),
-            ElevatedButton(
-              style: ElevatedButton.styleFrom(
-                backgroundColor: Colors.blue,
-                shape: const StadiumBorder(),
-              ),
-              child: const Text(
-                "送信",
-                style: TextStyle(
-                  fontSize: 24,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.white,
+        appBar: LogoBar.logoBar(),
+        body: SingleChildScrollView(
+          child: Container(
+            padding: Design.padding(),
+            child: Column(children: <Widget>[
+              TextFormField(
+                controller: TextEditingController(text: sendMessage),
+                maxLines: 99,
+                style: const TextStyle(
+                  color: Colors.black,
+                  overflow: TextOverflow.ellipsis,
                 ),
+                onChanged: (text) {
+                  sendMessage = text;
+                },
               ),
-              onPressed: () async {},
-            ),
-          ]),
+              ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.blue,
+                  shape: const StadiumBorder(),
+                ),
+                child: const Text(
+                  "送信",
+                  style: TextStyle(
+                    fontSize: 24,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.white,
+                  ),
+                ),
+                onPressed: () async {},
+              ),
+            ]),
+          ),
         ),
       ),
     );

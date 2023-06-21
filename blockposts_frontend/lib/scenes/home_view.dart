@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
+import '../component/logo_bar.dart';
 import '../util/auth_controller.dart';
 import '../util/design.dart';
 
@@ -12,7 +13,9 @@ class HomeView extends ConsumerStatefulWidget {
   ConsumerState<HomeView> createState() => _HomeViewState();
 }
 
-final authControllerProvider = StateNotifierProvider<AuthController, bool>((ref) => AuthController());
+final authControllerProvider =
+    StateNotifierProvider<AuthController, bool>((ref) => AuthController());
+
 class _HomeViewState extends ConsumerState<HomeView> {
   @override
   Widget build(BuildContext context) {
@@ -22,6 +25,7 @@ class _HomeViewState extends ConsumerState<HomeView> {
         return true;
       },
       child: Scaffold(
+        appBar: LogoBar.logoBar(),
         body: SafeArea(
           child: ListView.builder(
             padding: Design.padding(),
@@ -42,9 +46,9 @@ class _HomeViewState extends ConsumerState<HomeView> {
           onPressed: () {
             // if(非ログイン状態)ならログイン画面に遷移する
             // elseならポップアップで投稿メッセージを入力する欄を表示する
-            if(isLoggedIn){
+            if (isLoggedIn) {
               GoRouter.of(context).go('/message');
-            }else{
+            } else {
               GoRouter.of(context).go('/login');
             }
           },

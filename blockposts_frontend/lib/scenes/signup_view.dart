@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
-class  SignupView extends ConsumerStatefulWidget {
+class SignupView extends ConsumerStatefulWidget {
   const SignupView({Key? key}) : super(key: key);
 
   @override

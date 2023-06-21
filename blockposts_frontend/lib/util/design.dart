@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
-class Design{
+class Design {
   //　画面余白の大きさ
-  static EdgeInsets padding(){
+  static EdgeInsets padding() {
     return const EdgeInsets.all(8);
   }
 }

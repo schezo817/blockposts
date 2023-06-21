@@ -14,4 +14,5 @@ class AuthController extends StateNotifier<bool> {
   }
 }
 
-final authControllerProvider = StateNotifierProvider<AuthController, bool>((ref) => AuthController());
+final authControllerProvider =
+    StateNotifierProvider<AuthController, bool>((ref) => AuthController());
