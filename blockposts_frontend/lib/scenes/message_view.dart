@@ -3,6 +3,8 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:flutter_web3/flutter_web3.dart';
 
+import '../util/design.dart';
+
 class MessageView extends ConsumerStatefulWidget {
   const MessageView({Key? key}) : super(key: key);
 
@@ -13,6 +15,7 @@ class MessageView extends ConsumerStatefulWidget {
 //Metamask連携を行うボタンを配置する
 class _MessageViewState extends ConsumerState<MessageView> {
   var sendMessage = "";
+
   @override
   Widget build(BuildContext context) {
     return WillPopScope(
@@ -20,7 +23,8 @@ class _MessageViewState extends ConsumerState<MessageView> {
         return true;
       },
       child: Scaffold(
-        body: Center(
+        body: Container(
+          padding: Design.padding(),
           child: Column(children: <Widget>[
             TextFormField(
               controller: TextEditingController(text: sendMessage),
@@ -46,9 +50,7 @@ class _MessageViewState extends ConsumerState<MessageView> {
                   color: Colors.white,
                 ),
               ),
-              onPressed: () async {
-
-              },
+              onPressed: () async {},
             ),
           ]),
         ),

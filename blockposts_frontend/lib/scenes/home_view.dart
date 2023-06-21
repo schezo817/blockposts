@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
 import '../util/auth_controller.dart';
+import '../util/design.dart';
 
 class HomeView extends ConsumerStatefulWidget {
   const HomeView({Key? key}) : super(key: key);
@@ -23,7 +24,7 @@ class _HomeViewState extends ConsumerState<HomeView> {
       child: Scaffold(
         body: SafeArea(
           child: ListView.builder(
-            padding: EdgeInsets.all(8),
+            padding: Design.padding(),
             itemCount: 20,
             itemBuilder: (context, index) {
               // EtherScanから投稿を取得して表示する

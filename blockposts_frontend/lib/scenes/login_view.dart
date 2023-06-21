@@ -4,6 +4,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:flutter_web3/flutter_web3.dart';
 import '../util/auth_controller.dart';
+import '../util/design.dart';
 
 class LoginView extends ConsumerStatefulWidget {
   const LoginView({Key? key}) : super(key: key);
@@ -21,7 +22,8 @@ class _LoginViewState extends ConsumerState<LoginView> {
         return true;
       },
       child: Scaffold(
-        body: Center(
+        body: Container(
+          padding: Design.padding(),
           child: ElevatedButton(
             style: ElevatedButton.styleFrom(
               backgroundColor: Colors.blue,
